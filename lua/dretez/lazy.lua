@@ -37,6 +37,7 @@ require('lazy').setup({
   -- require 'dretez.plugins.lint',
   -- require 'dretez.plugins.autopairs',
   require 'dretez.plugins.neo-tree',
+  require 'dretez.plugins.presence',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
