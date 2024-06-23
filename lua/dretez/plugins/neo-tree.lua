@@ -24,5 +24,8 @@ return {
         },
       },
     },
+    window = {
+      position = 'right',
+    },
   },
 }
