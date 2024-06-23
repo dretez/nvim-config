@@ -65,3 +65,12 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Jump half page [U]p' })
 -- Keep cursor in the middle of the screen when searching
 vim.keymap.set('n', 'n', 'nzz', { desc = 'Find [n]ext occurence' })
 vim.keymap.set('n', 'N', 'Nzz', { desc = 'Find previous occurence' })
+
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = '[p]aste without copy' })
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = '[d]elete without copy' })
+
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = '[y]ank to clipboard' })
+vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+Y', { desc = '[Y]ank line to clipboard' })
+
+-- Make file executable
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<cr>', { desc = 'Make file executable', silent = true })
