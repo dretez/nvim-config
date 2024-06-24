@@ -33,12 +33,14 @@ require('lazy').setup({
   require 'dretez.plugins.mini',
   require 'dretez.plugins.treesitter',
   -- require 'dretez.plugins.debug',
-  -- require 'dretez.plugins.indent_line',
-  -- require 'dretez.plugins.lint',
-  -- require 'dretez.plugins.autopairs',
+  require 'dretez.plugins.indent_line',
+  require 'dretez.plugins.lint',
+  require 'dretez.plugins.autopairs',
   require 'dretez.plugins.neo-tree',
   require 'dretez.plugins.presence',
-  require 'dretez.plugins.autoclose',
+  -- require 'dretez.plugins.autoclose',
+  require 'dretez.plugins.bufferline',
+  require 'dretez.plugins.persistence',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

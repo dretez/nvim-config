@@ -74,7 +74,8 @@ vim.opt.cursorline = true
 
 vim.opt.scrolloff = 10
 
-vim.cmd.colorscheme 'catppuccin-mocha'
+vim.opt.termguicolors = true
+vim.cmd.colorscheme 'tokyonight'
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
