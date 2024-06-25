@@ -127,7 +127,6 @@ return { -- LSP Configuration & Plugins
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      clang_format = {},
       clangd = {},
       -- gopls = {},
       -- pyright = {},
@@ -141,10 +140,7 @@ return { -- LSP Configuration & Plugins
       tsserver = {},
       ast_grep = {},
       asm_lsp = {},
-      asmfmt = {},
       stylelint = {},
-      autopep8 = {},
-      prettier = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -173,6 +169,10 @@ return { -- LSP Configuration & Plugins
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
+      'clang-format', -- Format java and c (and derivatives) code
+      'asmfmt', -- Format assembly code
+      'autopep8', -- Format python code
+      'prettier', -- Format many languages related to web dev
       'stylua', -- Used to format Lua code
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
