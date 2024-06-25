@@ -127,6 +127,7 @@ return { -- LSP Configuration & Plugins
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
+      clang_format = {},
       clangd = {},
       -- gopls = {},
       -- pyright = {},
@@ -140,7 +141,10 @@ return { -- LSP Configuration & Plugins
       tsserver = {},
       ast_grep = {},
       asm_lsp = {},
+      asmfmt = {},
       stylelint = {},
+      autopep8 = {},
+      prettier = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
