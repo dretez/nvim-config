@@ -65,6 +65,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Jump half page [U]p' })
 vim.keymap.set('n', 'n', 'nzz', { desc = 'Find [n]ext occurence' })
 vim.keymap.set('n', 'N', 'Nzz', { desc = 'Find previous occurence' })
 
+-- Move screen in the direction of the jump when jumping to empty lines
+vim.keymap.set('n', '}', '}zt', { desc = 'Go to next empty line' })
+vim.keymap.set('n', '{', '{zb', { desc = 'Go to previous empty line' })
+
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = '[p]aste without copy' })
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = '[d]elete without copy' })
 
