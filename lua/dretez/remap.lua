@@ -1,10 +1,6 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- Clear search highlight on pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -49,13 +45,14 @@ vim.keymap.set('v', 'J', ":m '>+1<cr>gv=gv", { desc = 'Move Down' })
 vim.keymap.set('v', 'K', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
 
 -- buffers
-vim.keymap.set('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
-vim.keymap.set('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
+-- vim.keymap.set('n', '<leader>H', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
+-- vim.keymap.set('n', '<leader>L', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '<leader>bb', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
 vim.keymap.set('n', '<leader>bd', '<cmd>:bd<cr>', { desc = 'Delete Buffer and Window' })
+-- vim.keymap.set('n', '<leader>bD', '<cmd>%bd|e#<cr>', { desc = 'Delete all other Buffers and Window' })
 
 -- Keep cursor in the middle of the screen when jumping half page up/down
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Jump half page [D]own' })
@@ -77,3 +74,17 @@ vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+Y', { desc = '[Y]ank line to clipbo
 
 -- Make file executable
 vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<cr>', { desc = 'Make file executable', silent = true })
+
+-- restore the session for the current directory
+vim.api.nvim_set_keymap('n', '<leader>Ps', [[<cmd>lua require("persistence").load()<cr>]], { desc = '[P]ersistence: restore [s]ession for current workspace' })
+
+-- restore the last session
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>Pl',
+  [[<cmd>lua require("persistence").load({ last = true })<cr>]],
+  { desc = '[P]ersistence: restore [l]ast saved workspace' }
+)
+
+-- stop Persistence => session won't be saved on exit
+vim.api.nvim_set_keymap('n', '<leader>Pd', [[<cmd>lua require("persistence").stop()<cr>]], { desc = "[P]ersistence: don't save session on exit" })

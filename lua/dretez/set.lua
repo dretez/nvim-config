@@ -6,7 +6,7 @@
 vim.g.have_nerd_font = true
 
 -- Keep the block cursor in insert mode
-vim.opt.guicursor = ''
+-- vim.opt.guicursor = ''
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -55,7 +55,7 @@ vim.opt.updatetime = 50
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 100
+vim.opt.timeoutlen = 200
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -72,7 +72,7 @@ vim.opt.inccommand = 'split'
 
 vim.opt.cursorline = true
 
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 8
 
 vim.opt.termguicolors = true
 vim.cmd.colorscheme 'tokyonight'

@@ -127,7 +127,6 @@ return { -- LSP Configuration & Plugins
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      clangd = {},
       -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
@@ -137,10 +136,12 @@ return { -- LSP Configuration & Plugins
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      tsserver = {},
-      ast_grep = {},
-      asm_lsp = {},
-      stylelint = {},
+      clangd = {},
+      -- tsserver = {},
+      -- ast_grep = {},
+      -- asm_lsp = {},
+      -- stylelint = {},
+      jdtls = {}, -- Java LSP
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -169,10 +170,10 @@ return { -- LSP Configuration & Plugins
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'clang-format', -- Format java and c (and derivatives) code
-      'asmfmt', -- Format assembly code
-      'autopep8', -- Format python code
-      'prettier', -- Format many languages related to web dev
+      -- 'clang-format', -- Format java and c (and derivatives) code
+      -- 'asmfmt', -- Format assembly code
+      -- 'autopep8', -- Format python code
+      -- 'prettier', -- Format many languages related to web dev
       'stylua', -- Used to format Lua code
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }

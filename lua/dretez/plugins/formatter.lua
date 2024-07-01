@@ -26,10 +26,9 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       python = { 'autopep8' },
-      javascript = { { 'prettierd', 'prettier' } },
+      -- javascript = { { 'prettierd', 'prettier' } },
       asm = { 'asmfmt' },
       c = { 'clang-format' },
-      java = { { 'ast-grep', 'clang-format', 'google-java-formatt' } },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
