@@ -7,9 +7,9 @@
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
 return {
-  -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
-  -- NOTE: And you can specify dependencies as well
+  -- event = { 'BufReadPost', 'BufNewFile' },
+  event = { 'VeryLazy' },
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -29,16 +29,12 @@ return {
     local dapui = require 'dapui'
 
     require('mason-nvim-dap').setup {
-      -- Makes a best effort to setup the various debuggers with
-      -- reasonable debug configurations
       automatic_installation = true,
 
       -- You can provide additional configuration to the handlers,
       -- see mason-nvim-dap README for more information
       handlers = {},
 
-      -- You'll need to check that you have the required things installed
-      -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         -- 'delve',
@@ -50,8 +46,8 @@ return {
     vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
     vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
     vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
-    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
-    vim.keymap.set('n', '<leader>B', function()
+    vim.keymap.set('n', '<leader>Bt', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
+    vim.keymap.set('n', '<leader>Bs', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })
 

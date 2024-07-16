@@ -12,30 +12,38 @@ return { -- Useful plugin to show you pending keybinds.
   'folke/which-key.nvim',
   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
   config = function() -- This is the function that runs, AFTER loading
-    require('which-key').setup()
-
+    local wq = require 'which-key'
+    wq.setup()
     -- Document existing key chains
-    require('which-key').register {
-      ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-      ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      ['<leader>P'] = { name = '[P]ersistence', _ = 'which_key_ignore' },
-      ['<leader>H'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
+    wq.add {
+      { '<leader>H', group = '[H]arpoon' },
+      { '<leader>H_', hidden = true },
+      { '<leader>P', group = '[P]ersistence' },
+      { '<leader>P_', hidden = true },
+      { '<leader>c', group = '[C]ode' },
+      { '<leader>c_', hidden = true },
+      { '<leader>d', group = '[D]ocument' },
+      { '<leader>d_', hidden = true },
+      { '<leader>h', group = 'Git [H]unk' },
+      { '<leader>h_', hidden = true },
+      { '<leader>r', group = '[R]ename' },
+      { '<leader>r_', hidden = true },
+      { '<leader>s', group = '[S]earch' },
+      { '<leader>s_', hidden = true },
+      { '<leader>t', group = '[T]oggle' },
+      { '<leader>t_', hidden = true },
+      { '<leader>w', group = '[W]orkspace' },
+      { '<leader>w_', hidden = true },
     }
 
     -- Minecraft key chains
     if file_exists(vim.fn.getcwd() .. '/gradlew') then
-      require('which-key').register {
-        ['<leader>M'] = { name = '[M]inecraft', _ = 'which_key_ignore' },
+      wq.add {
+        { '<leader>M', group = '[M]inecraft' },
+        { '<leader>M_', hidden = true },
       }
     end
     -- visual mode
-    require('which-key').register({
-      ['<leader>h'] = { 'Git [H]unk' },
-    }, { mode = 'v' })
+    wq.add { { '<leader>h', desc = 'Git [H]unk', mode = 'v' } }
   end,
 }

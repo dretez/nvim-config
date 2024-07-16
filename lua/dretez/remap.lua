@@ -67,7 +67,7 @@ vim.keymap.set('n', '}', '}zt', { desc = 'Go to next empty line' })
 vim.keymap.set('n', '{', '{zb', { desc = 'Go to previous empty line' })
 
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = '[p]aste without copy' })
-vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = '[d]elete without copy' })
+vim.keymap.set({ 'n', 'v' }, '<leader>dd', '"_d', { desc = '[d]elete without copy' })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = '[y]ank to clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+Y', { desc = '[Y]ank line to clipboard' })

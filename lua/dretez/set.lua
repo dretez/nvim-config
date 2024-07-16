@@ -11,9 +11,9 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.autoindent = true
@@ -61,21 +61,18 @@ vim.opt.timeoutlen = 200
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
 vim.opt.cursorline = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 20
 
 vim.opt.termguicolors = true
 vim.cmd.colorscheme 'tokyonight'
+
+-- vim.opt.foldmethod = 'indent'
+-- vim.opt.foldenable = true
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

@@ -1,22 +1,3 @@
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-end ---@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
-
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
 
@@ -26,15 +7,15 @@ require('lazy').setup({
   require 'dretez.plugins.colorschemes',
   require 'dretez.plugins.todo-comments',
   require 'dretez.plugins.presence',
-  -- require 'dretez.plugins.bufferline',
-  require 'dretez.plugins.status-line',
+  require 'dretez.plugins.bufferline',
+  require 'dretez.plugins.lualine',
 
   -- [[ Code Writing ]]
   -- Plugins that help with staying in the flow when writing code
   require 'dretez.plugins.vim-sleuth',
   require 'dretez.plugins.comment',
   require 'dretez.plugins.hex',
-  -- require 'dretez.plugins.autoclose',
+  require 'dretez.plugins.autoclose',
   require 'dretez.plugins.autopairs',
   require 'dretez.plugins.indent_line',
   require 'dretez.plugins.mini',
@@ -52,16 +33,39 @@ require('lazy').setup({
   require 'dretez.plugins.jdtls',
   require 'dretez.plugins.lspconfig',
   require 'dretez.plugins.formatter',
-  require 'dretez.plugins.completion',
+  require 'dretez.plugins.nvim-cmp',
   require 'dretez.plugins.treesitter',
   require 'dretez.plugins.debug',
   require 'dretez.plugins.lint',
 
   -- [[ Git ]]
   -- Plugins that help integrating git
-  require 'dretez.plugins.gitsigns',
+  -- require 'dretez.plugins.gitsigns',
   require 'dretez.plugins.neogit',
 }, {
+  defaults = {
+    lazy = true,
+  },
+  install = {
+    missing = true,
+    colorscheme = { 'tokyonight_storm' },
+  },
+  performance = {
+    cache = {
+      enabled = true,
+      path = vim.fn.stdpath 'cache' .. '/lazy/cache',
+      disable_events = { 'VimEnter', 'BufReadPre' },
+    },
+    reset_packpath = true,
+    rtp = {
+      reset = true,
+      paths = {},
+      disable_plugins = {
+        'netrtPlugin',
+        'tutor',
+      },
+    },
+  },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table

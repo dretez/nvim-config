@@ -3,9 +3,10 @@ return {
   version = '*',
   dependencies = 'nvim-tree/nvim-web-devicons',
   event = 'VeryLazy',
+  enabled = false,
   opts = {
     options = {
-      separator_style = 'slant',
+      separator_style = 'thin',
       diagnostics = 'nvim_lsp',
       diagnostics_indicator = function(count, level)
         local icon = level:match 'error' and ' ' or ' '
@@ -18,10 +19,9 @@ return {
       },
       offsets = {
         {
-          filetype = 'NvimTree',
-          text = 'Neo Tree',
-          highlight = 'Directory',
-          separator = true,
+          filetype = 'neo-tree',
+          text = 'File Explorer',
+          -- separator = true,
         },
       },
     },
