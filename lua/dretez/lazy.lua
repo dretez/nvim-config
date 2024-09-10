@@ -27,6 +27,7 @@ require('lazy').setup({
   require 'dretez.plugins.telescope',
   require 'dretez.plugins.harpoon',
   require 'dretez.plugins.neo-tree',
+  require 'dretez.plugins.oil',
 
   -- [[ LSP ]]
   -- Plugins that add LSP features, from code highlighting to code completion

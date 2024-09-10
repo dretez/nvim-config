@@ -137,12 +137,12 @@ return { -- LSP Configuration & Plugins
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      clangd = {},
+      -- clangd = {},
       -- tsserver = {},
       -- ast_grep = {},
       -- asm_lsp = {},
       -- stylelint = {},
-      jdtls = {}, -- Java LSP
+      -- jdtls = {}, -- Java LSP
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
