@@ -1,48 +1,6 @@
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-
-  -- [[ Flavour ]]
-  -- Plugins with superficial features, from making the ui more visually pleasing
-  -- to integrating with Discord Rich Presence
-  require 'dretez.plugins.colorschemes',
-  require 'dretez.plugins.todo-comments',
-  require 'dretez.plugins.presence',
-  require 'dretez.plugins.bufferline',
-  require 'dretez.plugins.lualine',
-
-  -- [[ Code Writing ]]
-  -- Plugins that help with staying in the flow when writing code
-  require 'dretez.plugins.vim-sleuth',
-  require 'dretez.plugins.comment',
-  require 'dretez.plugins.hex',
-  require 'dretez.plugins.autoclose',
-  require 'dretez.plugins.autopairs',
-  require 'dretez.plugins.indent_line',
-  require 'dretez.plugins.mini',
-
-  -- [[ Navigation ]]
-  -- Plugins that help with general navigation, from files to macros
-  require 'dretez.plugins.persistence',
-  require 'dretez.plugins.which-key',
-  require 'dretez.plugins.telescope',
-  require 'dretez.plugins.harpoon',
-  require 'dretez.plugins.neo-tree',
-  require 'dretez.plugins.oil',
-
-  -- [[ LSP ]]
-  -- Plugins that add LSP features, from code highlighting to code completion
-  require 'dretez.plugins.jdtls',
-  require 'dretez.plugins.lspconfig',
-  require 'dretez.plugins.formatter',
-  require 'dretez.plugins.nvim-cmp',
-  require 'dretez.plugins.treesitter',
-  require 'dretez.plugins.debug',
-  require 'dretez.plugins.lint',
-
-  -- [[ Git ]]
-  -- Plugins that help integrating git
-  -- require 'dretez.plugins.gitsigns',
-  require 'dretez.plugins.neogit',
+  require 'dretez.plugins',
 }, {
   defaults = {
     lazy = true,

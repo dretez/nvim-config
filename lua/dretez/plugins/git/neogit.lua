@@ -4,11 +4,11 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim', -- required
     'sindrets/diffview.nvim', -- optional - Diff integration
-    require 'dretez.plugins.gitsigns',
+    require 'dretez.plugins.git.gitsigns',
 
     -- Only one of these is needed, not both.
     -- 'nvim-telescope/telescope.nvim', -- optional
-    require 'dretez.plugins.telescope',
+    require 'dretez.plugins.navigation.telescope',
     -- 'ibhagwan/fzf-lua', -- optional
   },
   config = true,
