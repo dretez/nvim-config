@@ -137,7 +137,7 @@ return { -- LSP Configuration & Plugins
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      -- clangd = {},
+      clangd = {},
       -- tsserver = {},
       -- ast_grep = {},
       -- asm_lsp = {},
@@ -171,7 +171,7 @@ return { -- LSP Configuration & Plugins
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      -- 'clang-format', -- Format java and c (and derivatives) code
+      'clang-format', -- Format java and c (and derivatives) code
       -- 'asmfmt', -- Format assembly code
       -- 'autopep8', -- Format python code
       -- 'prettier', -- Format many languages related to web dev
