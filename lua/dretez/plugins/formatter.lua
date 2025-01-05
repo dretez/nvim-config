@@ -4,7 +4,7 @@ return { -- Autoformat
   event = 'BufReadPost',
   keys = {
     {
-      '<leader>f',
+      '<leader>fb',
       function()
         require('conform').format { async = true, lsp_fallback = true }
       end,
@@ -30,6 +30,8 @@ return { -- Autoformat
       -- javascript = { { 'prettierd', 'prettier' } },
       asm = { 'asmfmt' },
       c = { 'clang-format' },
+      cpp = { 'clang-format' },
+      sh = { 'beautysh' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --

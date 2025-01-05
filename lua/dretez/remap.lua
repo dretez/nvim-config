@@ -51,7 +51,7 @@ vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '<leader>bb', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
-vim.keymap.set('n', '<leader>bd', '<cmd>:bd<cr>', { desc = 'Delete Buffer and Window' })
+vim.keymap.set('n', '<leader>bd', '<cmd>:b#|bd#<cr>', { desc = 'Delete Buffer' })
 -- vim.keymap.set('n', '<leader>bD', '<cmd>%bd|e#<cr>', { desc = 'Delete all other Buffers and Window' })
 
 -- Keep cursor in the middle of the screen when jumping half page up/down
@@ -88,3 +88,14 @@ vim.api.nvim_set_keymap(
 
 -- stop Persistence => session won't be saved on exit
 vim.api.nvim_set_keymap('n', '<leader>Pd', [[<cmd>lua require("persistence").stop()<cr>]], { desc = "[P]ersistence: don't save session on exit" })
+
+-- Lazy.nvim
+vim.api.nvim_set_keymap('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Open [L]azy' })
+
+-- Format title
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>ft',
+  "<cmd>s#^\\(.*\\)\\/\\ze\\zs\\*\\(.*\\)\\*#\\=repeat('*',(78-strwidth(submatch(1).submatch(2)))/2).toupper(submatch(2)).repeat('*',(78-strwidth(submatch(1).submatch(2)))/2)<cr><esc>",
+  { desc = '[F]ormat [t]itle' }
+)
