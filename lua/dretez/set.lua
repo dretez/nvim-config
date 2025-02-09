@@ -71,8 +71,8 @@ vim.opt.scrolloff = 20
 vim.opt.termguicolors = true
 vim.cmd.colorscheme 'tokyonight'
 
--- vim.opt.foldmethod = 'indent'
--- vim.opt.foldenable = true
+vim.opt.foldmethod = 'indent'
+vim.opt.foldenable = false
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -86,4 +86,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
   end,
+})
+
+-- Use C syntax for .h files
+-- vim.g.c_syntax_for_h = 1
+
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({
+  'BufEnter',
+  'CursorHold',
+  'CursorHoldI',
+  'FocusGained',
+}, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { '*' },
 })
